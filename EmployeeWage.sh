@@ -1,7 +1,10 @@
 echo welcome
 echo to daily wage computation
 #absent=0 present=1 parttime=2
-
+function getWorkHours()
+{
+	echo "This employee worked for $Emp hours in this month"
+}
 totW=0
 tothr=0
 Ehr=0
