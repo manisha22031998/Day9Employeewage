@@ -1,6 +1,7 @@
 echo welcome
 echo to daily wage computation
 #absent=0 present=1 parttime=2
+declare -A DailyandTotal
 function getWorkHours()
 {
 	echo "This employee worked for $Emp hours in this month"
@@ -32,4 +33,12 @@ do
 	then
 		break
 	fi
+	Dailyandtotal[$day]=$DailyWage
 done
+for day in ${!DailyandTotal[@]}
+do
+	echo "Day $day : ${DailyandTotal}"
+done
+#getWorkHours
+#echo "Employee earn $totW , this month"
+#echo "Employee daily data is ${daily_data[@]}"
