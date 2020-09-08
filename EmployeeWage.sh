@@ -1,10 +1,11 @@
+#! /bin/bash
 echo welcome
 echo to daily wage computation
 #absent=0 present=1 parttime=2
 declare -A DailyandTotal
 function getWorkHours()
 {
-	echo "This employee worked for $Emp hours in this month"
+	echo "This employee worked for $Ehr hours in this month"
 }
 totW=0
 tothr=0
@@ -19,26 +20,26 @@ do
 	;;
 	1)	hr=20
 		((workdays++))
-		Ehr+=hr
+		((Ehr+=hr))
 	;;
 	2)	hr=8
 		((workdays++))
-		Ehr+=hr
+		((Ehr+=hr))
 	;;
 	esac
 	DailyWage=$((wph*hr))
 	daily_data+=($DailyWage)
-	totW+=($DailyWage)
-	if [ $Emhr -ge 100 ]
+	((totW+=DailyWage))
+	if [ $Ehr -ge 100 ]
 	then
 		break
 	fi
-	Dailyandtotal[$day]=$DailyWage
+	DailyandTotal[$day]=$DailyWage
 done
 for day in ${!DailyandTotal[@]}
 do
-	echo "Day $day : ${DailyandTotal}"
+	echo "Day $day : ${DailyandTotal[$day]}"
 done
-#getWorkHours
-#echo "Employee earn $totW , this month"
-#echo "Employee daily data is ${daily_data[@]}"
+getWorkHours
+echo "Employee earn $totW , this month"
+echo "Employee daily data is $daily_data}"
