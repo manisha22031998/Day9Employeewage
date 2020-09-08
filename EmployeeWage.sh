@@ -1,25 +1,26 @@
 echo welcome
 echo to daily wage computation
-#UC1
+#absent=0 present=1 parttime=2
+
+totW=0
+tothr=0
+Ehr=0
+workdays=0
 for (( day=1;day<=20;day++ ))
 do
-	attendance=$((RANDOM%2))
-	if [ $attendance -eq 0 ]
-	then
-		emp=0
-		echo absent
-	else
-		emp=1
-		echo present
-	fi
-done
-#UC2
-if [ $emp -eq 1 ]
-then
+	attendance=$((RANDOM%3))
 	wph=20
-	hr=8
-	dailywage=$((wph*hr))
-	echo $dailywage
-else
-	echo Working hr is 0
-
+	case $attendance in
+	0) 	hr=0
+	;;
+	1)	hr=20
+		((workdays++))
+		Ehr+=hr
+	;;
+	2)	hr=8
+		((workdays++))
+		Ehr+=hr
+	;;
+	esac
+	#DailyWage=$((wph*hr))
+	#daily_data+=($DailyWage)
