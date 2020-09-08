@@ -25,3 +25,8 @@ do
 	DailyWage=$((wph*hr))
 	daily_data+=($DailyWage)
 	totW+=($DailyWage)
+	if [ $Emhr -ge 100 ]
+	then
+		break
+	fi
+done
