@@ -22,5 +22,6 @@ do
 		Ehr+=hr
 	;;
 	esac
-	#DailyWage=$((wph*hr))
-	#daily_data+=($DailyWage)
+	DailyWage=$((wph*hr))
+	daily_data+=($DailyWage)
+	totW+=($DailyWage)
